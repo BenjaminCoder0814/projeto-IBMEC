@@ -112,7 +112,7 @@ section{padding:110px 0;position:relative}
 @media (max-width:820px){.sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:44px}.sec-num{max-width:120px}section{padding:80px 0}}
 
 /* TEAM */
-.team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:960px){.team{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:480px){.team{grid-template-columns:1fr}}
 .member{
@@ -253,8 +253,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
     <h1 class="rv">O trabalho mudou.<br>O <em>contrato</em> também.</h1>
     <p class="lead rv">Redes sociais, autonomia e propósito: como uma empresa pode reconquistar jovens profissionais sem abrir mão da própria identidade — e o que ela deve esperar em troca.</p>
     <div class="hero-meta rv">
-      <div class="chip"><b>8</b> integrantes</div>
-      <div class="chip"><b>7</b> perguntas debatidas</div>
+      <div class="chip"><b>6</b> integrantes</div>
+      <div class="chip"><b>6</b> perguntas debatidas</div>
       <div class="chip"><b>10</b> compromissos</div>
     </div>
     <a href="#contrato" class="cta rv">Ler o contrato
@@ -269,7 +269,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
       <div class="sec-num rv">01 — Equipe</div>
       <div>
         <h2 class="rv">A equipe de <em>liderança</em></h2>
-        <p class="rv">Oito pessoas, oito perspectivas sobre o que significa trabalhar — e se mostrar — em uma época conectada.</p>
+        <p class="rv">Seis pessoas, seis perspectivas sobre o que significa trabalhar — e se mostrar — em uma época conectada.</p>
       </div>
     </div>
     <div class="team" id="team"></div>
@@ -379,14 +379,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 
 <script>
 const team = [
-  "Giovanna Almeida Paes Silva",
   "Pedro Henrique Ferreira da Silva Lapa",
   "Gabriel Bulgarelli Fernandes",
   "Benjamin Maciel",
   "Isadora Fraguas Almeida Horta",
   "Yasmin Yaksic Melnik",
-  "Natasha Yaksic Melnik",
-  "Robson de Jesus Francisco Junior"
+  "Natasha Yaksic Melnik"
 ];
 const colors = ["#c2410c","#1e3a8a","#0f766e","#7c3aed","#be185d","#b45309","#0369a1","#15803d"];
 const initials = n => { const p = n.split(" ").filter(w => w.length > 2); return (p[0][0] + p[p.length-1][0]).toUpperCase(); };
@@ -400,7 +398,7 @@ document.getElementById("team").innerHTML = team.map((n,i) => `
   </div>`).join("");
 
 const questions = [
-  { who:["Giovanna Almeida Paes Silva","Isadora Fraguas Almeida Horta"],
+  { who:["Isadora Fraguas Almeida Horta"],
     q:"Quem deveria ser responsável por estabelecer os limites: o funcionário ou a empresa?",
     a:"<strong>Os dois, juntos.</strong> A empresa define o que é inegociável — sigilo, dados de clientes, respeito à marca — e o funcionário define o que é pessoal. Limites impostos de cima para baixo geram resistência; limites construídos em conjunto geram compromisso." },
   { who:["Pedro Henrique Ferreira da Silva Lapa"],
@@ -417,10 +415,7 @@ const questions = [
     a:"<strong>Uma oportunidade — se houver parceria.</strong> Um funcionário influente pode humanizar a marca e atrair talentos. Vira ameaça quando a empresa ignora o fenômeno ou tenta reprimi-lo; o ideal é reconhecer, alinhar expectativas e crescer junto." },
   { who:["Natasha Yaksic Melnik"],
     q:"Se você fosse gestor de uma pessoa que viralizou mostrando sua rotina de trabalho, qual seria sua primeira atitude: conversar, criar regras ou pedir que ela parasse?",
-    a:"<strong>Conversar.</strong> Antes de qualquer regra, é preciso entender a motivação, reconhecer o alcance conquistado e alinhar juntos o que pode e o que não pode ser mostrado. Pedir que pare seria perder uma voz valiosa; criar regras sem diálogo seria repetir o erro do controle excessivo." },
-  { who:["Robson de Jesus Francisco Junior"],
-    q:"O que um funcionário pode perder quando transforma sua vida profissional em conteúdo?",
-    a:"<strong>Privacidade, foco e, às vezes, credibilidade.</strong> A exposição constante pode borrar a fronteira entre vida pessoal e trabalho, gerar conflitos com colegas e clientes e criar a pressão de performar o tempo todo — inclusive fora do expediente." }
+    a:"<strong>Conversar.</strong> Antes de qualquer regra, é preciso entender a motivação, reconhecer o alcance conquistado e alinhar juntos o que pode e o que não pode ser mostrado. Pedir que pare seria perder uma voz valiosa; criar regras sem diálogo seria repetir o erro do controle excessivo." }
 ];
 
 document.getElementById("qs").innerHTML = questions.map((x,i) => `
