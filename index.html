@@ -218,31 +218,6 @@ section{padding:110px 0;position:relative}
 .c-foot{text-align:center;margin-top:56px;font-size:13px;color:var(--ink-3);position:relative;z-index:1}
 
 
-/* PRESENTATION */
-.timer{background:var(--ink);color:var(--bg);border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;margin-bottom:28px}
-@media (max-width:760px){.timer{grid-template-columns:1fr}}
-.timer .phase{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb,var(--bg) 65%,transparent)}
-.timer .clock{font-family:Fraunces,serif;font-size:clamp(64px,12vw,128px);line-height:1;letter-spacing:-.03em;font-weight:300;font-variant-numeric:tabular-nums;margin:10px 0 18px}
-.timer.warn .clock{color:var(--accent)}
-.track{height:6px;border-radius:6px;background:color-mix(in srgb,var(--bg) 18%,transparent);position:relative;overflow:hidden}
-.track i{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent);border-radius:6px;transition:width .4s linear}
-.track b{position:absolute;top:-4px;bottom:-4px;left:71.43%;width:2px;background:var(--bg);opacity:.6}
-.legend{display:flex;justify-content:space-between;font-size:13px;margin-top:10px;color:color-mix(in srgb,var(--bg) 60%,transparent)}
-.tbtns{display:flex;gap:10px}
-.tbtns button{font:600 15px Inter,sans-serif;padding:14px 24px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:var(--bg);cursor:pointer}
-.tbtns button.pri{background:var(--accent);border-color:var(--accent);color:#fff}
-.parts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-@media (max-width:760px){.parts{grid-template-columns:1fr}}
-.part{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px}
-.part .pn{font-family:Fraunces,serif;color:var(--accent);font-size:15px}
-.part h3{font-family:Fraunces,serif;font-weight:500;font-size:24px;margin:6px 0 12px;letter-spacing:-.01em}
-.part .ppl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.part .ppl span{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;background:var(--bg-2);font-size:14px;font-weight:500}
-.part .ppl em{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal;font-size:11px;font-weight:700}
-.part p{color:var(--ink-2);font-size:16px}
-.rules{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
-.rules span{padding:9px 16px;border-radius:999px;border:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
-
 /* FOOTER */
 footer{padding:60px 0;border-top:1px solid var(--line);color:var(--ink-3);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
@@ -251,7 +226,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-@media print{nav,.hero,footer,#equipe,#caso,#perguntas,#analise,#apresentacao{display:none}.contract-bg{background:#fff}section{padding:0}}
+@media print{nav,.hero,footer,#equipe,#caso,#perguntas,#analise{display:none}.contract-bg{background:#fff}section{padding:0}}
 </style>
 </head>
 <body>
@@ -265,7 +240,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
       <a href="#perguntas">Perguntas</a>
       <a href="#analise">Análise</a>
       <a href="#contrato">Contrato</a>
-      <a href="#apresentacao">Apresentação</a>
     </div>
     <button class="theme" id="themeBtn" aria-label="Alternar tema">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -282,7 +256,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
       <div class="chip"><b>8</b> integrantes</div>
       <div class="chip"><b>7</b> perguntas debatidas</div>
       <div class="chip"><b>10</b> compromissos</div>
-      <div class="chip"><b>7</b> minutos</div>
     </div>
     <a href="#contrato" class="cta rv">Ler o contrato
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -397,37 +370,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 </section>
 
 
-<section id="apresentacao">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-num rv">04 — Apresentação</div>
-      <div>
-        <h2 class="rv">Todo mundo <em>fala</em></h2>
-        <p class="rv">São 5 minutos de construção e 2 de fechamento. Cada dupla apresenta uma parte, para que ninguém fique só no “concordo”.</p>
-      </div>
-    </div>
-    <div class="timer rv" id="timer">
-      <div>
-        <div class="phase" id="phase">Pronto para começar</div>
-        <div class="clock" id="clock">07:00</div>
-        <div class="track"><i id="bar"></i><b></b></div>
-        <div class="legend"><span>Construção · 5 min</span><span>Fechamento · 2 min</span></div>
-      </div>
-      <div class="tbtns">
-        <button class="pri" id="tStart">Iniciar</button>
-        <button id="tReset">Zerar</button>
-      </div>
-    </div>
-    <div class="parts" id="parts"></div>
-    <div class="rules rv">
-      <span>✋ Levantar a mão antes de falar</span>
-      <span>🤝 Uma ou duas ideias por pergunta, por consenso</span>
-      <span>🍒 A energia vai para o contrato</span>
-      <span>🚫 Nada de internet: é a equipe com a equipe</span>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <span class="serif">Contrato da Nova Geração</span>
@@ -521,40 +463,6 @@ document.getElementById("signs").innerHTML = team.map(n => `
     <div class="rl">Equipe de liderança</div>
   </div>`).join("");
 
-
-const parts = [
-  ["01","O que mudar e o que manter",[1,4],"Abrem a apresentação: valorizar a opinião dos funcionários, dar mais autonomia e um acolhimento melhor, mantendo o comprometimento, a produtividade e as metas de trabalho."],
-  ["02","O que oferecer além do salário",[0,7],"Benefícios e bonificações a partir dos feitos de cada funcionário: reconhecer quem se destaca e fazer valer a pena ficar."],
-  ["03","Compromissos da empresa",[2,5],"A empresa dos sonhos: semana de 4 dias, Conselho Jovem, desconexão garantida, 20% do tempo para projetos próprios e cuidado integral."],
-  ["04","Compromissos dos funcionários e fechamento",[6,3],"O outro lado do acordo: responsabilidade, ética nas redes, falar dentro antes de falar fora, respeito e protagonismo. Fecham com a frase do contrato."]
-];
-document.getElementById("parts").innerHTML = parts.map(([n,t,w,d]) => `
-  <div class="part rv">
-    <div class="pn">Parte ${n}</div>
-    <h3>${t}</h3>
-    <div class="ppl">${w.map(i => `<span><em style="background:${colors[i]}">${initials(team[i])}</em>${short(team[i])}</span>`).join("")}</div>
-    <p>${d}</p>
-  </div>`).join("");
-
-/* timer 5 + 2 min */
-const TOTAL = 420, BUILD = 300;
-let left = TOTAL, tick = null;
-const $ = id => document.getElementById(id);
-const draw = () => {
-  const m = String(Math.floor(left/60)).padStart(2,"0"), s = String(left%60).padStart(2,"0");
-  $("clock").textContent = `${m}:${s}`;
-  $("bar").style.width = ((TOTAL-left)/TOTAL*100) + "%";
-  const used = TOTAL - left;
-  $("timer").classList.toggle("warn", used >= BUILD);
-  $("phase").textContent = left === 0 ? "Tempo esgotado" : !tick && left === TOTAL ? "Pronto para começar" : used < BUILD ? "Construção · respondam as 3 perguntas e partam para o contrato" : "Fechamento · últimos 2 minutos";
-};
-$("tStart").onclick = () => {
-  if (tick) { clearInterval(tick); tick = null; $("tStart").textContent = "Continuar"; draw(); return; }
-  if (left === 0) left = TOTAL;
-  tick = setInterval(() => { left--; if (left <= 0) { left = 0; clearInterval(tick); tick = null; $("tStart").textContent = "Reiniciar"; } draw(); }, 1000);
-  $("tStart").textContent = "Pausar"; draw();
-};
-$("tReset").onclick = () => { clearInterval(tick); tick = null; left = TOTAL; $("tStart").textContent = "Iniciar"; draw(); };
 
 /* reveal on scroll */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold:.12 });
