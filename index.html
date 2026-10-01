@@ -217,6 +217,32 @@ section{padding:110px 0;position:relative}
 .sign .rl{font-size:12px;color:var(--ink-3);margin-top:2px}
 .c-foot{text-align:center;margin-top:56px;font-size:13px;color:var(--ink-3);position:relative;z-index:1}
 
+
+/* PRESENTATION */
+.timer{background:var(--ink);color:var(--bg);border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;margin-bottom:28px}
+@media (max-width:760px){.timer{grid-template-columns:1fr}}
+.timer .phase{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb,var(--bg) 65%,transparent)}
+.timer .clock{font-family:Fraunces,serif;font-size:clamp(64px,12vw,128px);line-height:1;letter-spacing:-.03em;font-weight:300;font-variant-numeric:tabular-nums;margin:10px 0 18px}
+.timer.warn .clock{color:var(--accent)}
+.track{height:6px;border-radius:6px;background:color-mix(in srgb,var(--bg) 18%,transparent);position:relative;overflow:hidden}
+.track i{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent);border-radius:6px;transition:width .4s linear}
+.track b{position:absolute;top:-4px;bottom:-4px;left:71.43%;width:2px;background:var(--bg);opacity:.6}
+.legend{display:flex;justify-content:space-between;font-size:13px;margin-top:10px;color:color-mix(in srgb,var(--bg) 60%,transparent)}
+.tbtns{display:flex;gap:10px}
+.tbtns button{font:600 15px Inter,sans-serif;padding:14px 24px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:var(--bg);cursor:pointer}
+.tbtns button.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.parts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (max-width:760px){.parts{grid-template-columns:1fr}}
+.part{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px}
+.part .pn{font-family:Fraunces,serif;color:var(--accent);font-size:15px}
+.part h3{font-family:Fraunces,serif;font-weight:500;font-size:24px;margin:6px 0 12px;letter-spacing:-.01em}
+.part .ppl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.part .ppl span{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;background:var(--bg-2);font-size:14px;font-weight:500}
+.part .ppl em{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal;font-size:11px;font-weight:700}
+.part p{color:var(--ink-2);font-size:16px}
+.rules{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.rules span{padding:9px 16px;border-radius:999px;border:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+
 /* FOOTER */
 footer{padding:60px 0;border-top:1px solid var(--line);color:var(--ink-3);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
@@ -225,7 +251,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-@media print{nav,.hero,footer,#equipe,#caso,#perguntas,#analise{display:none}.contract-bg{background:#fff}section{padding:0}}
+@media print{nav,.hero,footer,#equipe,#caso,#perguntas,#analise,#apresentacao{display:none}.contract-bg{background:#fff}section{padding:0}}
 </style>
 </head>
 <body>
@@ -239,6 +265,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
       <a href="#perguntas">Perguntas</a>
       <a href="#analise">Análise</a>
       <a href="#contrato">Contrato</a>
+      <a href="#apresentacao">Apresentação</a>
     </div>
     <button class="theme" id="themeBtn" aria-label="Alternar tema">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -255,6 +282,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
       <div class="chip"><b>8</b> integrantes</div>
       <div class="chip"><b>7</b> perguntas debatidas</div>
       <div class="chip"><b>10</b> compromissos</div>
+      <div class="chip"><b>7</b> minutos</div>
     </div>
     <a href="#contrato" class="cta rv">Ler o contrato
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -317,31 +345,25 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
         <span class="tag t-change">Mudar</span>
         <h3>O que a empresa deve mudar?</h3>
         <ul>
-          <li>Trocar o controle de horas por gestão por entregas e metas claras.</li>
-          <li>Substituir proibições genéricas por uma política de redes sociais construída junto com os funcionários.</li>
-          <li>Criar canais reais de escuta, com retorno visível sobre o que foi dito.</li>
-          <li>Respeitar o direito de desconexão fora do expediente.</li>
+          <li><span><strong>Do controle para a confiança:</strong> parar de vigiar horas e passar a cobrar resultados combinados.</span></li>
+          <li><span><strong>Escuta de verdade:</strong> o funcionário fala e vê a mudança acontecer, sem medo de retaliação.</span></li>
         </ul>
       </div>
       <div class="col rv">
         <span class="tag t-keep">Manter</span>
         <h3>O que deve continuar igual?</h3>
         <ul>
-          <li>Ética, transparência e respeito como valores inegociáveis.</li>
-          <li>Sigilo sobre clientes, dados e informações estratégicas.</li>
-          <li>Compromisso com a qualidade e com prazos.</li>
-          <li>A cultura de responsabilidade: autonomia vem junto de compromisso.</li>
+          <li><span><strong>Ética e sigilo:</strong> dados de clientes e informações estratégicas continuam protegidos.</span></li>
+          <li><span><strong>Foco em resultado:</strong> liberdade não é ausência de compromisso; a qualidade continua sendo cobrada.</span></li>
         </ul>
       </div>
       <div class="col rv">
         <span class="tag t-offer">Oferecer</span>
         <h3>Além do salário, o quê?</h3>
         <ul>
-          <li>Modelo híbrido e horários flexíveis.</li>
-          <li>Plano de carreira transparente e mentoria.</li>
-          <li>Apoio à saúde mental e ao bem-estar.</li>
-          <li>Verba para cursos, idiomas e desenvolvimento.</li>
-          <li>Reconhecimento e propósito: saber por que o trabalho importa.</li>
+          <li><span><strong>Tempo:</strong> flexibilidade de horário e local, e vida pessoal respeitada.</span></li>
+          <li><span><strong>Crescimento:</strong> mentoria, cursos e um plano de carreira claro.</span></li>
+          <li><span><strong>Bem-estar:</strong> apoio à saúde mental e um ambiente onde dá para respirar.</span></li>
         </ul>
       </div>
     </div>
@@ -370,6 +392,38 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 
       <p class="c-foot">Projeto acadêmico · IBMEC · 2026</p>
     </article>
+  </div>
+</section>
+
+
+<section id="apresentacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num rv">04 — Apresentação</div>
+      <div>
+        <h2 class="rv">Todo mundo <em>fala</em></h2>
+        <p class="rv">São 5 minutos de construção e 2 de fechamento. Cada dupla apresenta uma parte, para que ninguém fique só no “concordo”.</p>
+      </div>
+    </div>
+    <div class="timer rv" id="timer">
+      <div>
+        <div class="phase" id="phase">Pronto para começar</div>
+        <div class="clock" id="clock">07:00</div>
+        <div class="track"><i id="bar"></i><b></b></div>
+        <div class="legend"><span>Construção · 5 min</span><span>Fechamento · 2 min</span></div>
+      </div>
+      <div class="tbtns">
+        <button class="pri" id="tStart">Iniciar</button>
+        <button id="tReset">Zerar</button>
+      </div>
+    </div>
+    <div class="parts" id="parts"></div>
+    <div class="rules rv">
+      <span>✋ Levantar a mão antes de falar</span>
+      <span>🤝 Uma ou duas ideias por pergunta, por consenso</span>
+      <span>🍒 A energia vai para o contrato</span>
+      <span>🚫 Nada de internet: é a equipe com a equipe</span>
+    </div>
   </div>
 </section>
 
@@ -437,18 +491,18 @@ document.getElementById("qs").innerHTML = questions.map((x,i) => `
   </details>`).join("");
 
 const empresa = [
-  ["Autonomia com metas claras","Avaliar resultados, não horas. Cada profissional terá liberdade para organizar sua rotina, com objetivos transparentes e combinados previamente."],
-  ["Liberdade de expressão com diretrizes construídas juntos","Criar, em parceria com os funcionários, uma política de redes sociais simples e objetiva — que proteja a empresa sem silenciar as pessoas."],
-  ["Respeito ao tempo pessoal","Garantir o direito à desconexão: sem mensagens ou cobranças fora do expediente, além de modelo híbrido e horários flexíveis."],
-  ["Crescimento e desenvolvimento","Oferecer plano de carreira transparente, mentoria, feedbacks frequentes e investimento em cursos e capacitação."],
-  ["Escuta ativa e bem-estar","Manter canais de escuta com retorno real, pesquisas periódicas de clima e apoio à saúde mental."]
+  ["Semana de 4 dias e horário livre","Você escolhe quando e de onde trabalha; a empresa cobra só o resultado combinado. Inclui um mês por ano trabalhando de qualquer lugar do mundo."],
+  ["Conselho Jovem com voto de verdade","Um grupo de jovens profissionais com poder de voto nas decisões da empresa, além de uma política de redes sociais criada junto com a equipe."],
+  ["Desconexão garantida","Depois do expediente, as mensagens de trabalho ficam bloqueadas. Folga no dia do aniversário e um “dia do bem-estar” por mês, sem justificativa."],
+  ["20% do tempo para projetos próprios","Parte da semana fica livre para criar, testar ideias e aprender. Os melhores projetos ganham investimento da empresa."],
+  ["Carreira sob medida e cuidado integral","Mentoria individual, verba anual para cursos e viagens de estudo, além de psicólogo, academia e terapia pagos pela empresa."]
 ];
 const func = [
-  ["Responsabilidade com as entregas","Cumprir metas e prazos com qualidade, usando a autonomia recebida com maturidade e comprometimento."],
-  ["Ética e sigilo nas redes","Nunca expor informações confidenciais, dados de clientes ou colegas sem autorização, mantendo uma postura coerente com os valores da empresa."],
-  ["Comunicação transparente","Levar críticas e sugestões pelos canais internos antes de torná-las públicas, contribuindo para soluções e não apenas para problemas."],
-  ["Respeito à cultura e aos colegas","Colaborar com a equipe, respeitar a diversidade de opiniões e preservar um ambiente saudável para todos."],
-  ["Protagonismo no próprio desenvolvimento","Buscar aprendizado contínuo, aproveitar as oportunidades oferecidas e compartilhar conhecimento com o time."]
+  ["Entregar o que foi combinado","Liberdade vem junto de responsabilidade: cumprir metas e prazos com qualidade, sem precisar de ninguém vigiando."],
+  ["Usar a voz com ética","Postar, opinar e se expressar à vontade, sem expor clientes, colegas ou informações confidenciais."],
+  ["Falar dentro antes de falar fora","Levar críticas e ideias para os canais internos primeiro, sempre trazendo uma proposta de solução junto com o problema."],
+  ["Respeitar o tempo do outro","Assim como a empresa respeita a desconexão, o funcionário também não invade o descanso dos colegas."],
+  ["Ser protagonista do próprio crescimento","Aproveitar as oportunidades, aprender sempre e compartilhar com o time o que aprendeu."]
 ];
 const clause = (arr,label) => arr.map(([t,d],i) => `
   <div class="clause rv">
@@ -465,6 +519,41 @@ document.getElementById("signs").innerHTML = team.map(n => `
     <div class="nm">${n}</div>
     <div class="rl">Equipe de liderança</div>
   </div>`).join("");
+
+
+const parts = [
+  ["01","O que mudar e o que manter",[1,4],"Abrem a apresentação: trocar o controle pela confiança e criar uma escuta de verdade, mantendo a ética, o sigilo e o foco em resultado."],
+  ["02","O que oferecer além do salário",[0,7],"Tempo, crescimento e bem-estar: o que faz alguém querer ficar mesmo quando recebe uma proposta com salário maior."],
+  ["03","Compromissos da empresa",[2,5],"A empresa dos sonhos: semana de 4 dias, Conselho Jovem, desconexão garantida, 20% do tempo para projetos próprios e cuidado integral."],
+  ["04","Compromissos dos funcionários e fechamento",[6,3],"O outro lado do acordo: responsabilidade, ética nas redes, falar dentro antes de falar fora, respeito e protagonismo. Fecham com a frase do contrato."]
+];
+document.getElementById("parts").innerHTML = parts.map(([n,t,w,d]) => `
+  <div class="part rv">
+    <div class="pn">Parte ${n}</div>
+    <h3>${t}</h3>
+    <div class="ppl">${w.map(i => `<span><em style="background:${colors[i]}">${initials(team[i])}</em>${short(team[i])}</span>`).join("")}</div>
+    <p>${d}</p>
+  </div>`).join("");
+
+/* timer 5 + 2 min */
+const TOTAL = 420, BUILD = 300;
+let left = TOTAL, tick = null;
+const $ = id => document.getElementById(id);
+const draw = () => {
+  const m = String(Math.floor(left/60)).padStart(2,"0"), s = String(left%60).padStart(2,"0");
+  $("clock").textContent = `${m}:${s}`;
+  $("bar").style.width = ((TOTAL-left)/TOTAL*100) + "%";
+  const used = TOTAL - left;
+  $("timer").classList.toggle("warn", used >= BUILD);
+  $("phase").textContent = left === 0 ? "Tempo esgotado" : !tick && left === TOTAL ? "Pronto para começar" : used < BUILD ? "Construção · respondam as 3 perguntas e partam para o contrato" : "Fechamento · últimos 2 minutos";
+};
+$("tStart").onclick = () => {
+  if (tick) { clearInterval(tick); tick = null; $("tStart").textContent = "Continuar"; draw(); return; }
+  if (left === 0) left = TOTAL;
+  tick = setInterval(() => { left--; if (left <= 0) { left = 0; clearInterval(tick); tick = null; $("tStart").textContent = "Reiniciar"; } draw(); }, 1000);
+  $("tStart").textContent = "Pausar"; draw();
+};
+$("tReset").onclick = () => { clearInterval(tick); tick = null; left = TOTAL; $("tStart").textContent = "Iniciar"; draw(); };
 
 /* reveal on scroll */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold:.12 });
